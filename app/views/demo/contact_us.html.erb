@@ -1,0 +1,13 @@
+<h1>Contact Us</h1>
+<% if ['us', 'ca'].include?(@country) %>
+  Phone: (800) 555-6789
+<% elsif @country == 'uk' %>
+  Phone: +1 (111) 222-2222
+<% else  %>
+  Phone: +1 (987) 654-321
+<% end %>
+Country: <%= @country %>
+
+<%= link_to('Contact', { :action => 'contact', :country => 'us' }) %>
+<%= link_to('Contact Canada', { :action => 'contact', :country => 'ca' }) %>
+<%= link_to('About', 'about ') %>

@@ -1,0 +1,30 @@
+<h1>This is the hello page</h1>
+<%= link_to('text', 'index') %>
+<%= link_to('text', 'index') %>
+
+<%= 1+1 %>
+<% target = 'world' %>
+<br>
+<h2><%= "hello #{target}" %></h2>
+
+<br>
+
+<!-- Outputs Nothing to HTML, it shows up in the rails console-->
+<%
+  3.times do |n|
+    puts n
+  end
+%>
+
+
+<% @array.each do |n| %>
+  <p><%= n %></p>
+<% end %>
+
+<br>
+
+ID: <%= params[:id] %>
+<br>
+ID: <%= @id %>
+<br>
+Page: <%= @page %> | <%= link_to('Next Page', {:page => @page.to_i + 1, :id => @id}) %>
