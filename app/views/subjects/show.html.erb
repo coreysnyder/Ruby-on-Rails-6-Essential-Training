@@ -1,2 +1,15 @@
-<h1>Subjects#show</h1>
-<p>Find me in app/views/subjects/show.html.erb</p>
+<h1><%= @subject.name %></h1>
+<h3>Details:</h3>
+<ul>
+  <li>Position: <%= @subject.position %></li>
+  <li>Pages: <%=@subject.pages.count %></li>
+  <li>Visible: <%=@subject.visible ? 'Yes' : 'No' %></li>
+  <li>Created: <%= @subject.created_at %></li>
+  <li>Updated: <%= @subject.updated_at %></li>
+</ul>
+
+<%= link_to('Edit Subject', edit_subject_path(@subject)) %>
+<br>
+<%= link_to('Delete Subject', delete_subject_path(@subject)) %>
+<br>
+<%= link_to('All Subjects', subjects_path) %>
