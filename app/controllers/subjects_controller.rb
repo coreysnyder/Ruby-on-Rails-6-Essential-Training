@@ -40,8 +40,18 @@ class SubjectsController < ApplicationController
   end
 
   def delete
+    @subject = Subject.find(params[:id])
   end
   def destroy
+    @subject = Subject.find(params[:id])
+
+    if @subject.destroy
+      # if destroyed succeeds, redirect to the index action
+      redirect_to(subjects_path)
+    else
+      # if destroy fails, redisplay the form so the user can fix problems
+      render('delete')
+    end
   end
 
   private
