@@ -8,6 +8,13 @@
   <li>Updated: <%= @subject.updated_at %></li>
 </ul>
 
+<h4>Child Pages</h4>
+<ul>
+  <% @subject.pages.each do |page| %>
+    <li><%= link_to(page.name, page_path(page)) %></li>
+  <% end %>
+</ul>
+
 <%= link_to('Edit Subject', edit_subject_path(@subject)) %>
 <br>
 <%= link_to('Delete Subject', delete_subject_path(@subject)) %>
