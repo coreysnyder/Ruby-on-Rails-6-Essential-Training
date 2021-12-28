@@ -37,7 +37,21 @@ class PagesController < ApplicationController
   end
 
   def delete
+    @page = Page.find(params[:id])
   end
   def destroy
+    @page = Page.find(params[:id])
+
+    if @page.destroy
+      redirect_to(pages_path)
+    else
+      render('delete')
+    end
+  end
+
+  private
+  def page_params
+    puts(params)
+    params.require(:page).permit(:name, :visible, :position, :content, :subject_id, :permalink)
   end
 end

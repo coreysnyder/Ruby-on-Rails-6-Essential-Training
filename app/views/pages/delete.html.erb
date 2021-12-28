@@ -1,2 +1,10 @@
-<h1>Pages#delete</h1>
-<p>Find me in app/views/pages/delete.html.erb</p>
+
+
+<%= form_for(@page, :method => 'delete') do |f| %>
+
+  <p>Are you sure you want to permanently delete this page?</p>
+  <p>Page: <%= @page.name %></p>
+  <div class="form-buttons">
+    <%= f.submit("Delete Page") %>
+  </div>
+<% end %>
