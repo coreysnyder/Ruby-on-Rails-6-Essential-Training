@@ -1,2 +1,19 @@
-<h1>Pages#show</h1>
-<p>Find me in app/views/pages/show.html.erb</p>
+<h1><%= @page.name %></h1>
+<h3>Details:</h3>
+<ul>
+  <li>Position: <%= @page.position %></li>
+  <li>Subject: <%= link_to(@page.subject.name, subject_path(@page.subject)) %></li>
+  <li>Visible: <%=@page.visible ? 'Yes' : 'No' %></li>
+  <li>Permalink: <%= @page.permalink %></li>
+  <li>Content: <%= @page.content %></li>
+  <li>Created: <%= @page.created_at %></li>
+  <li>Updated: <%= @page.updated_at %></li>
+</ul>
+
+
+
+<%= link_to('Edit Page', edit_page_path(@page)) %>
+<br>
+<%= link_to('Delete Page', delete_page_path(@page)) %>
+<br>
+<%= link_to('All Pages', pages_path) %>
