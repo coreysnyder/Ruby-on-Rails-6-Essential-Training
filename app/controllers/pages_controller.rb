@@ -30,7 +30,7 @@ class PagesController < ApplicationController
 
     if @page.update(page_params)
       # If we successfully edit the new page
-      redirect_to(pages_path(@page))
+      redirect_to(page_path(@page))
     else
       render('new')
     end
@@ -52,6 +52,13 @@ class PagesController < ApplicationController
   private
   def page_params
     puts(params)
-    params.require(:page).permit(:name, :visible, :position, :content, :subject_id, :permalink)
+    params.require(:page).permit(
+      :name,
+      :visible,
+      :position,
+      :content,
+      :subject_id,
+      :permalink
+    )
   end
 end
